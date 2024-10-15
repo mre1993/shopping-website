@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
@@ -8,4 +8,6 @@ urlpatterns = [
     path("logout/", views.logout_user, name="logout"),
     path("signup/", views.signup_user, name="signup"),
     path("product/<int:pk>/", views.product, name="product"),
+    path("category/<str:cat>/", views.category, name="category"),
+    path("api/v1/", include("shop.api.v1.urls")),
 ]
